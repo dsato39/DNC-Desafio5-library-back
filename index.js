@@ -10,7 +10,11 @@ app.use(express.json())
 const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
-  return res.json("hellor word!")
+  return res.json("hello world!")
+})
+
+app.get('/users', (req, res) => {
+  return res.json(users)
 })
 
 app.get('/livros', async (req, res) => {

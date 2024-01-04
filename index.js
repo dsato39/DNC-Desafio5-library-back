@@ -13,10 +13,6 @@ app.get('/', (req, res) => {
   return res.json("hello world!")
 })
 
-app.get('/users', (req, res) => {
-  return res.json(users)
-})
-
 app.get('/livros', async (req, res) => {
   const livros = await livroModel.find({})
   return res.status(200).json(livros)

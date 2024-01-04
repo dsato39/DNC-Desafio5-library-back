@@ -2,22 +2,16 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const livroModel = require('./src/model/livro')
-const cors = require("cors");
+const cors = require('cors');
 
 app.use(cors({}))
 app.use(express.json())
 
 const PORT = process.env.PORT || 3001;
 
-app.get('/', (req, res) => {
-  return res.json("hello world!")
-})
-
-const teste = [];
-
-app.get('/teste', (req, res) => {
-  return res.json(teste)
-})
+app.get("/", (req, res) => {
+  res.send({ working: true });
+});
 
 app.get('/livros', async (req, res) => {
   const livros = await livroModel.find({})
@@ -53,5 +47,7 @@ app.delete('/livros/:id', async (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Servidor operacional na porta ${PORT}`)
-})
+  console.log(`Server is running on port ${PORT}`);
+});
+
+module.exports = app;

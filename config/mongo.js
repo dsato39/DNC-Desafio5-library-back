@@ -1,13 +1,24 @@
-const mongoose = require ('mongoose')
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-let conn
+// Database connection URL
+const dbUrl = process.env.DB_KEY;
 
-const connection = () => {
-    if (conn) {
-        return conn
-    }
-    
-    conn = mongoose.connect('mongodb://127.0.0.1:27017/local')
-}
+// Connect to the database
+const connectToMongo = () => {
+  mongoose.connect(dbUrl);
 
-module.exports = connection
+  mongoose.connection.on("connected", () => {
+    console.log("Connected to the database");
+  });
+
+  mongoose.connection.on("error", (err) => {
+    console.error("Database connection error:", err);
+  });
+
+  mongoose.connection.on("disconnected", () => {
+    console.log("Disconnected from the database");
+  });
+};
+
+module.exports = { connectToMongo };

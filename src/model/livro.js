@@ -1,7 +1,4 @@
 const mongoose = require ('mongoose')
-const conn = require('../../config/mongo')
-
-conn()
 
 const livroSchema = mongoose.Schema({
     id: Number,

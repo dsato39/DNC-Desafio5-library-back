@@ -7,7 +7,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json())
 
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
   return res.json("hello world!")
@@ -52,6 +52,6 @@ app.delete('/livros/:id', async (req, res) => {
   return res.status(200).json(livro)
 })
 
-app.listen(port, () => {
-    console.log(`Servidor operacional na porta ${port}`)
+app.listen(PORT, () => {
+    console.log(`Servidor operacional na porta ${PORT}`)
 })

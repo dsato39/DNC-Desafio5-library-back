@@ -50,6 +50,6 @@ app.delete('/livros/:id', async (req, res) => {
   return res.status(200).json(livro)
 })
 
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log('Servidor operacional!')
 })

@@ -53,5 +53,5 @@ app.delete('/livros/:id', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Servidor operacional!')
+    console.log(`Servidor operacional na porta ${port}`)
 })
